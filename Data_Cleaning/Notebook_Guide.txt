@@ -1,3 +1,5 @@
 # Data Cleaning
 
 These notebooks contain some useful functions to help you with data cleaning. 
+
+Feel free to use them in any way you find helpful.
