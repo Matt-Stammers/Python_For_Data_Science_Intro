@@ -31,3 +31,35 @@ plt.margins(0.02)
 # Make a legend and show the plot
 _ = plt.legend(('std = 1', 'std = 3', 'std = 10'), loc='lower right')
 plt.show()
+
+# Say we wanted to plot the normal distribution of patient's stay in hospital to see if it follows a normal distribution
+
+# Compute mean and standard deviation: mu, sigma to get the shape of the curve
+mu = np.mean(patient_stay)
+sigma = np.std(patient_stay)
+
+# Sample out of a normal distribution with this mu and sigma: samples
+samples = np.random.normal(mu, sigma, size = 10000)
+
+# Get the CDF of the samples and of the data - we can then get an idea of how long patient's stayed compared to the perfect normal distribution
+x_theor, y_theor = ecdf(samples)
+x, y = ecdf(patient_stay)
+
+# Plot the CDFs and show the plot
+_ = plt.plot(x_theor, y_theor)
+_ = plt.plot(x, y, marker='.', linestyle='none')
+plt.margins(0.02)
+
+# say we had a patient who stayed over 1000 days. Could we work out the probability of this event happening again?
+
+# Take a million samples out of the Normal distribution: samples (as per prev with the mu and sigma already calculated.
+samples = np.random.normal(mu, sigma, size = 1000000)
+
+# Compute the fraction that stayed over 1000 days: prob
+a = samples >= 1000
+b = sum(a)
+print(b)
+prob = b / len(samples)
+
+# Print the result
+print('Probability of patient staying over 1,000 days:', prob)
