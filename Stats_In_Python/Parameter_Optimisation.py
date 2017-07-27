@@ -120,3 +120,7 @@ plt.xlabel('slope (admission rate / percent who died)')
 plt.ylabel('sum of square of residuals')
 
 plt.show()
+
+# However, don't be blindly guided by these figures, all the numbers can look just dandy but as anscombe's quartet quite rightly points out
+# Look before you leap - thus always start with graphical EDA.
+=============
