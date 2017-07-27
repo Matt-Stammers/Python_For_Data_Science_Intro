@@ -1,3 +1,1 @@
 This code stack will assist you in developing basic plots and performing statistical analysis in Python on your data.
-
-I learned it all from www.datacamp.com and then applied it to my own data and situation. If you want to learn data-science skills I strongly recommend such an investment in your own education ;)
