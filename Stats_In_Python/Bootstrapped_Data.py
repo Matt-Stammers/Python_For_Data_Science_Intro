@@ -64,4 +64,7 @@ _ = plt.ylabel('PDF')
 # Show the plot
 plt.show()
 
+# Calculate the confidence intervals:
+bs_replicates = draw_bs_reps(rainfall, np.mean, size=10000)
+
 # This shows how powerful bootstrapped data can be in validating results and computing confidence intervals.
