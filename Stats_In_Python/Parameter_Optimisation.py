@@ -58,3 +58,65 @@ _ = plt.plot(x_double, y_double)
 
 # Show the plot
 plt.show()
+
+# Regression Problems
+===========================
+
+# by first plotting the pearson co-efficient we can also get an idea about the shape of the data and whether it is correlated:
+
+# Plot the admission rate versus death
+_ = plt.plot(admission_rate, death, marker='.', linestyle='none')
+
+# Set the margins and label axes
+plt.margins(0.02)
+_ = plt.xlabel('admission rate')
+_ = plt.ylabel('death rate')
+
+# Show the plot
+plt.show()
+
+# Show the Pearson correlation coefficient
+print(pearson_r(admission_rate, death))
+
+# In order to plot the regression parameters we can use np.polyfit to calculate the slope and intercept.
+
+# Plot the admission rate versus death
+_ = plt.plot(death_rate, death, marker='.', linestyle='none')
+plt.margins(0.02)
+_ = plt.xlabel('admission_rate')
+_ = plt.ylabel('death')
+
+# Perform a linear regression using np.polyfit(): a, b
+a, b = np.polyfit(admission_rate, death, 1)
+
+# Print the results to the screen
+print('slope =', a, 'admissions per day / deaths in %')
+print('intercept =', b, 'admissions per day')
+
+# Make theoretical line to plot
+x = np.array([0,100])
+y = a * x + b
+
+# Add regression line to your plot
+_ = plt.plot(x, y)
+
+# Draw the plot
+plt.show()
+
+# computing the sum of the residuals squared or RDD can also be done manually:
+# Specify slopes to consider: a_vals
+a_vals = np.linspace(0, 0.1, 200)
+
+# Initialize sum of square of residuals: rss
+rss = np.empty_like(a_vals)
+
+# Compute sum of square of residuals for each value of a_vals
+for i, a in enumerate(a_vals):
+    rss[i] = np.sum((admission_rate - a*death - b)**2)
+
+# Plot the RSS
+plt.plot(a_vals, rss, '-')
+plt.xlabel('slope (admission rate / percent who died)')
+plt.ylabel('sum of square of residuals')
+
+plt.show()
