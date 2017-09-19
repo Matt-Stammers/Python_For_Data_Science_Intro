@@ -1,5 +1,6 @@
 # This is the elite data science MNIST basic convolutional neural network code: - I did not write this but it's a great starter code
 # and I want to shout out about what they are up to: https://elitedatascience.com/keras-tutorial-deep-learning-in-python
+# Note this is a python 2.7 version!
 
 # 3. Import libraries and modules
 import numpy as np
